@@ -38,6 +38,9 @@ INSTALL_K3S_SKIP_DOWNLOAD=true ./install.sh
 ```sh
 systemctl status k3s
 ```
+<p align="center">
+  <img src="./img/k3s_success.jpeg" alt="Successfully installed k3s" width="900">
+</p>
 
 ## Deploy awx-operator
 
