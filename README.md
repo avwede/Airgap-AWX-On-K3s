@@ -48,7 +48,7 @@ https://github.com/ansible/awx-operator
 2. Download image dependencies and push to your GitLab container registry
 * `awx-operator` (https://quay.io/repository/ansible/awx-operator)
 * `kube-rbac-proxy` (https://registry.hub.docker.com/r/rancher/kube-rbac-proxy)
-```
+
 3. Create your new namespace for awx
 ```sh
 kubectl create namespace awx
@@ -57,11 +57,21 @@ kubectl create namespace awx
 ```sh
 sudo kubectl create secret docker-registry awx-puller --docker-server=<my-server-registry> --docker-username=<my-username> --docker-password=<my-password> -n awx
 ```
-5. Run the makefile in the awx-operator repository folder
+
+5. Add the imagePullSecrets spec to your deployment yaml
+```sh
+kubectl edit deployment -o yaml -n awx
+```
+```sh
+imagePullSecrets:
+  - name: awx-puller
+```
+
+6. Run the makefile in the awx-operator repository folder
 ```sh
 make deploy
 ```
-6. Check if your awx operator is up and running!
+7. Check if your awx operator is up and running!
 ```sh
 kubectl get pods -n awx
 ```
@@ -74,3 +84,18 @@ kubectl get pods -n awx
 * `redis` (https://hub.docker.com/_/redis)
 * `awx` (https://quay.io/repository/ansible/awx)
 
+2. Create your base directory and copy over the configuration files for your awx instance
+```sh
+mkdir base
+```
+
+3. Apply the base config files to create your awx instance 
+```sh
+kubectl apply -f base -n awx
+```
+
+3. Check the operator logs and status to see your running awx-instance
+```sh
+kubectl logs -f deploy/awx-operator-controller-manager -n awx -c awx-manager
+kubectl get all -n awx
+```
