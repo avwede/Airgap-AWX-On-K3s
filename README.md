@@ -1,7 +1,7 @@
 # AWX-On-K3s
 A complete guide on how to bring up an AWX instance using k3s in an air gapped environment.
 
-## Prerequistites
+## Prerequisites
 - Alma Linux VM  
 - GitLab Container Registry
 
@@ -34,7 +34,7 @@ cp ./install.sh /usr/local/bin
 INSTALL_K3S_SKIP_DOWNLOAD=true ./install.sh
 ```
 
-6. Check if k3s are running!
+6. Check if k3s is up and running!
 ```sh
 systemctl status k3s
 ```
@@ -43,18 +43,37 @@ systemctl status k3s
 </p>
 
 ## Deploy awx-operator
-1. Download image dependencies and push to your GitLab container registry
+1. Clone and copy the awx-operator repository file into your air gapped environment  
+https://github.com/ansible/awx-operator
+
+2. Download image dependencies and push to your GitLab container registry
 ```sh
-awx-operator (https://registry.hub.docker.com/r/rancher/kube-rbac-proxy)
-kube-rbac-proxy (https://quay.io/repository/ansible/awx-operator)
+awx-operator (https://quay.io/repository/ansible/awx-operator)
+kube-rbac-proxy (https://registry.hub.docker.com/r/rancher/kube-rbac-proxy)
 ```
-2. Create your new namespace for awx
+3. Create your new namespace for awx
 ```sh
 kubectl create namespace awx
 ```
-3. Create a secret to pull the dependencies from your GitLab container registry
+4. Create a secret to pull the dependencies from your GitLab container registry
 ```sh
 sudo kubectl create secret docker-registry awx-puller --docker-server=<my-server-registry> --docker-username=<my-username> --docker-password=<my-password> -n awx
 ```
+5. Run the makefile in the awx-operator repository folder
+```sh
+make deploy
+```
+6. Check if your awx operator is up and running!
+```sh
+kubectl get pods -n awx
+```
 
 ## Deploy AWX Instance
+1. Download image dependencies and push to your GitLab container registry
+```sh
+centos 8 (https://quay.io/repository/generic/centos8)
+awx-ee (https://quay.io/repository/ansible/awx-ee)
+postgres 12 (https://hub.docker.com/_/postgres)
+rediss (https://hub.docker.com/_/redis)
+awx (https://quay.io/repository/ansible/awx)
+```
