@@ -34,6 +34,11 @@ cp ./install.sh /usr/local/bin
 INSTALL_K3S_SKIP_DOWNLOAD=true ./install.sh
 ```
 
+6. Check if k3s are running!
+```sh
+systemctl status k3s
+```
+
 ## Deploy awx-operator
 
 ## Deploy AWX Instance
