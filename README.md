@@ -24,6 +24,16 @@ sudo chmod +x k3s
 ls -l k3s
 ```
 
+4. Download the k3s install script from https://get.k3s.io and place it in the same folder as the k3s binary
+```sh
+cp ./install.sh /usr/local/bin
+```
+
+5. Run the install script
+```sh
+INSTALL_K3S_SKIP_DOWNLOAD=true ./install.sh
+```
+
 ## Deploy awx-operator
 
 ## Deploy AWX Instance
