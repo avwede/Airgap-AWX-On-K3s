@@ -7,10 +7,9 @@ A complete guide on how to bring up an AWX instance using k3s in an air gapped e
 
 ## [Air-Gap Install for k3s](https://rancher.com/docs/k3s/latest/en/installation/airgap/) 
 1. Download dependencies from https://github.com/k3s-io/k3s/releases
-```sh
-k3s-airgap-images-amd64.tar
-k3s
-```
+* `k3s-airgap-images-amd64.tar`
+* `k3s`
+
 2. Add dependencies to the images directory
 ```sh
 sudo mkdir -p /var/lib/rancher/k3s/agent/images/
@@ -47,9 +46,8 @@ systemctl status k3s
 https://github.com/ansible/awx-operator
 
 2. Download image dependencies and push to your GitLab container registry
-```sh
-awx-operator (https://quay.io/repository/ansible/awx-operator)
-kube-rbac-proxy (https://registry.hub.docker.com/r/rancher/kube-rbac-proxy)
+* `awx-operator` (https://quay.io/repository/ansible/awx-operator)
+* `kube-rbac-proxy` (https://registry.hub.docker.com/r/rancher/kube-rbac-proxy)
 ```
 3. Create your new namespace for awx
 ```sh
@@ -70,10 +68,9 @@ kubectl get pods -n awx
 
 ## Deploy AWX Instance
 1. Download image dependencies and push to your GitLab container registry
-```sh
-centos 8 (https://quay.io/repository/generic/centos8)
-awx-ee (https://quay.io/repository/ansible/awx-ee)
-postgres 12 (https://hub.docker.com/_/postgres)
-rediss (https://hub.docker.com/_/redis)
-awx (https://quay.io/repository/ansible/awx)
-```
+* `centos 8` (https://quay.io/repository/generic/centos8)
+* `awx-ee` (https://quay.io/repository/ansible/awx-ee)
+* `postgres 12` (https://hub.docker.com/_/postgres)
+* `redis` (https://hub.docker.com/_/redis)
+* `awx` (https://quay.io/repository/ansible/awx)
+
