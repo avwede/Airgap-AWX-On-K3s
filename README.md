@@ -2,10 +2,10 @@
 A guide on how to bring up an AWX instance using k3s in an air gapped environment.
 
 ## Prerequistites
-Alma Linux VM
-GitLab Container Registry
+- Alma Linux VM  
+- GitLab Container Registry
 
-### Install k3s
+## Install k3s
 1. Download dependencies from https://github.com/k3s-io/k3s/releases
 ```sh
 k3s-airgap-images-amd64.tar
@@ -24,6 +24,6 @@ sudo chmod +x k3s
 ls -l k3s
 ```
 
-### Deploy awx-operator
+## Deploy awx-operator
 
-### Deploy AWX Instance
+## Deploy AWX Instance
