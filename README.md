@@ -17,6 +17,12 @@ sudo mkdir -p /var/lib/rancher/k3s/agent/images/
 sudo cp ./k3s-airgap-images-amd64.tar /var/lib/rancher/k3s/agent/images/
 sudo cp ./k3s /usr/local/bin/k3s
 ```
+3. Ensure that the k3s binary is executable
+```sh
+cd /usr/local/bin
+sudo chmod +x k3s
+ls -l k3s
+```
 
 ### Deploy awx-operator
 
