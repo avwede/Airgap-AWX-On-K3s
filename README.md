@@ -1,5 +1,5 @@
 # AWX-On-K3s
-A guide on how to bring up an AWX instance using k3s in an air gapped environment.
+A complete guide on how to bring up an AWX instance using k3s in an air gapped environment.
 
 ## Prerequistites
 - Alma Linux VM  
@@ -43,5 +43,18 @@ systemctl status k3s
 </p>
 
 ## Deploy awx-operator
+1. Download image dependencies and push to your GitLab container registry
+```sh
+awx-operator (https://registry.hub.docker.com/r/rancher/kube-rbac-proxy)
+kube-rbac-proxy (https://quay.io/repository/ansible/awx-operator)
+```
+2. Create your new namespace for awx
+```sh
+kubectl create namespace awx
+```
+3. Create a secret to pull the dependencies from your GitLab container registry
+```sh
+sudo kubectl create secret docker-registry awx-puller --docker-server=<my-server-registry> --docker-username=<my-username> --docker-password=<my-password> -n awx
+```
 
 ## Deploy AWX Instance
