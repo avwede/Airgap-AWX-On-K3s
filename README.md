@@ -121,3 +121,6 @@ replicaset.apps/awx-operator-controller-manager-5f4d629726   0         0        
 replicaset.apps/awx-operator-controller-manager-6246c6d285   1         1         1       3d17h
 replicaset.apps/awx-instance-1-64d6bc5fb5                    1         1         1       2d19h
 ```
+<p align="center">
+  <img src="./img/awx_success.jpeg" alt="AWX Web UI" width="900">
+</p>
