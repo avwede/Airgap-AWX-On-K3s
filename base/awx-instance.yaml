@@ -1,1 +1,40 @@
+apiVersion: awx.ansible.com/v1beta1
+kind: AWX
+metadata:
+  name: awx-instance
+  namespace: awx
+spec:
+  admin_user: admin
+  admin_email: admin@dev
+  admin_password_secret: password
+  service_type: NodePort
+  nodeport_port: 30080
+  projects_persistence: true
+  postgres_storage_class: local-path
+  image_pull_secret: awx-puller
+  postgres_image: mygitlabregistry/awx/postgres
+  postgres_image_version: "12"
+  redis_image:  mygitlabregistry/awx/redis
+  redis_image_version: "6.2.6"
+  image: mygitlabregistry/awx/awx
+  image_version: "20.0.1"
+  ee_images:
+    - name: awx-ee
+      image: mygitlabregistry/awx/awx-ee:0.6.0
+  control_plane_ee_image: mygitlabregistry/awx/awx-ee:0.6.0
+  init_container_image: mygitlabregistry/awx/centos
+  init_container_image_version: "8"
+  projects_storage_class: local-path
+  projects_storage_access_mode: ReadWriteOnce
+  web_resource_requirements: {}
+  task_resource_requirements: {}
+  ee_resource_requirements: {}
 
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: awx-instance-1-admin-password
+  namespace: awx
+stringData:
+  password: password
