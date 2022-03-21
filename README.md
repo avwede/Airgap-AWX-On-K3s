@@ -71,7 +71,7 @@ sudo kubectl create secret docker-registry awx-puller --docker-server=<my-server
 make deploy
 ```
 
-6. Add the imagePullSecrets spec to your deployment yaml
+6. Add the imagePullSecrets spec to your deployment yaml and add all image paths to your container registry
 ```sh
 kubectl edit deployment -o yaml -n awx
 ```
