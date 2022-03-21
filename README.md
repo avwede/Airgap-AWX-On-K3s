@@ -14,12 +14,15 @@ A complete guide on how to bring up an AWX instance using k3s in an air gapped e
 ```sh
 sudo mkdir -p /var/lib/rancher/k3s/agent/images/
 sudo cp ./k3s-airgap-images-amd64.tar /var/lib/rancher/k3s/agent/images/
+sudo cp ./k3s-selinux-0.4-1.el8.noarch.rpm /var/lib/rancher/k3s/agent/images/
 sudo cp ./k3s /usr/local/bin
+sudo cp ./install.sh /usr/local/bin
 ```
-3. Ensure that the k3s binary is executable
+3. Ensure that the k3s binary and install script are executable
 ```sh
 cd /usr/local/bin
 sudo chmod +x k3s
+sudo chmod +x install.sh
 ls -l k3s
 ```
 
@@ -37,6 +40,12 @@ INSTALL_K3S_SKIP_DOWNLOAD=true ./install.sh
 ```sh
 systemctl status k3s
 ```
+
+NOTE: You may need to include /usr/local/bin in your path to run kubectl commands.
+```sh
+export PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin
+```
+
 <p align="center">
   <img src="./img/k3s_success.jpeg" alt="Successfully installed k3s" width="900">
 </p>
