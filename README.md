@@ -66,8 +66,12 @@ kubectl create namespace awx
 ```sh
 sudo kubectl create secret docker-registry awx-puller --docker-server=<my-server-registry> --docker-username=<my-username> --docker-password=<my-password> -n awx
 ```
+5. Run the makefile in the awx-operator repository folder
+```sh
+make deploy
+```
 
-5. Add the imagePullSecrets spec to your deployment yaml
+6. Add the imagePullSecrets spec to your deployment yaml
 ```sh
 kubectl edit deployment -o yaml -n awx
 ```
@@ -76,10 +80,6 @@ imagePullSecrets:
   - name: awx-puller
 ```
 
-6. Run the makefile in the awx-operator repository folder
-```sh
-make deploy
-```
 7. Check if your awx operator is up and running!
 ```sh
 kubectl get pods -n awx
