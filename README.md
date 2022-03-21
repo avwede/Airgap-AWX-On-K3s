@@ -79,6 +79,9 @@ kubectl edit deployment -o yaml -n awx
 imagePullSecrets:
   - name: awx-puller
 ```
+<p align="center">
+  <img src="./img/image-pull-secrets.png" alt="Container registry files" width="600">
+</p>
 
 7. Check if your awx operator is up and running!
 ```sh
