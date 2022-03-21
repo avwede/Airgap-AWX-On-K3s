@@ -99,3 +99,25 @@ kubectl apply -f base -n awx
 kubectl logs -f deploy/awx-operator-controller-manager -n awx -c awx-manager
 kubectl get all -n awx
 ```
+
+If all goes well, you should see the following output: 
+```sh
+NAME                                                   READY   STATUS    RESTARTS        AGE
+pod/awx-operator-controller-manager-6846c6d685-bsvgl   2/2     Running   0               3d17h
+pod/awx-instance-1-postgres-0                          1/1     Running   0               2d19h
+pod/awx-instance-1-42sf4sfdb5-sf54d                    4/4     Running   0               2d19h
+
+NAME                                                      TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+service/awx-operator-controller-manager-metrics-service   ClusterIP   10.43.103.10    <none>        8443/TCP       3d17h
+service/awx-instance-1-postgres                           ClusterIP   None            <none>        5432/TCP       2d19h
+service/awx-instance-1-service                            NodePort    10.43.159.107   <none>        80:32762/TCP   2d19h
+
+NAME                                              READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/awx-operator-controller-manager   1/1     1            1           3d17h
+deployment.apps/awx-instance-1                    1/1     1            1           2d19h
+
+NAME                                                         DESIRED   CURRENT   READY   AGE
+replicaset.apps/awx-operator-controller-manager-5f4d629726   0         0         0       3d17h
+replicaset.apps/awx-operator-controller-manager-6246c6d285   1         1         1       3d17h
+replicaset.apps/awx-instance-1-64d6bc5fb5                    1         1         1       2d19h
+```
