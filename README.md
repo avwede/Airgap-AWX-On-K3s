@@ -1,4 +1,4 @@
-# AWX-On-K3s
+# Airgap-AWX-On-K3s
 A complete guide on how to bring up an AWX instance using k3s in an air gapped environment.
 
 ## Prerequisites
