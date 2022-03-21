@@ -14,7 +14,7 @@ A complete guide on how to bring up an AWX instance using k3s in an air gapped e
 ```sh
 sudo mkdir -p /var/lib/rancher/k3s/agent/images/
 sudo cp ./k3s-airgap-images-amd64.tar /var/lib/rancher/k3s/agent/images/
-sudo cp ./k3s /usr/local/bin/k3s
+sudo cp ./k3s /usr/local/bin
 ```
 3. Ensure that the k3s binary is executable
 ```sh
