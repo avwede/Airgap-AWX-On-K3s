@@ -84,6 +84,11 @@ kubectl get pods -n awx
 * `redis` (https://hub.docker.com/_/redis)
 * `awx` (https://quay.io/repository/ansible/awx)
 
+After all dependencies are pushed to your registry, it should look like this:
+<p align="center">
+  <img src="./img/container-registry.png" alt="Container registry files" width="900">
+</p>
+
 2. Create your base directory and copy over the configuration files for your awx instance
 ```sh
 mkdir base
