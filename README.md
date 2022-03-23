@@ -63,16 +63,20 @@ https://github.com/ansible/awx-operator
 ```sh
 kubectl create namespace awx
 ```
+
 4. Create a secret to pull the dependencies from your GitLab container registry
 ```sh
 sudo kubectl create secret docker-registry awx-puller --docker-server=<my-server-registry> --docker-username=<my-username> --docker-password=<my-password> -n awx
 ```
-5. Run the makefile in the awx-operator repository folder
+
+5. Edit your /roles/installer/defaults/main.yml file to point your images to your GitLab registry instead of quay.io and docker. Ensure that your image_pull_secret is set to awx-puller. 
+
+6. Run the makefile in the awx-operator repository folder
 ```sh
 make deploy
 ```
 
-6. Add the imagePullSecrets spec to your deployment yaml and add all image paths to your container registry
+7. Add the imagePullSecrets spec to your deployment yaml and add all image paths to your container registry
 ```sh
 kubectl edit deployment -o yaml -n awx
 ```
@@ -84,7 +88,7 @@ imagePullSecrets:
   <img src="./img/image-pull-secrets.png" alt="Container registry files" width="600">
 </p>
 
-7. Check if your awx operator is up and running!
+8. Check if your awx operator is up and running!
 ```sh
 kubectl get pods -n awx
 ```
