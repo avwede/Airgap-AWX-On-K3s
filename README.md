@@ -6,9 +6,10 @@ A complete guide on how to bring up an AWX instance using k3s in an air gapped e
 - GitLab Container Registry
 
 ## [Air-Gap Install for k3s](https://rancher.com/docs/k3s/latest/en/installation/airgap/) 
-1. Download dependencies from https://github.com/k3s-io/k3s/releases
+1. Download dependencies from https://github.com/k3s-io/k3s/releases and https://github.com/k3s-io/k3s-selinux/releases
 * `k3s-airgap-images-amd64.tar`
 * `k3s`
+* `k3s-selinux-0.4-1.el8.noarch.rpm`
 
 2. Add dependencies to the images directory
 ```sh
