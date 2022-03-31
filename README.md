@@ -143,9 +143,9 @@ replicaset.apps/awx-operator-controller-manager-6246c6d285   1         1        
 replicaset.apps/awx-instance-1-64d6bc5fb5                    1         1         1       2d19h
 ```
 
-4. Access your web UI using your VM IP address or URL and your node port! 
+4. Access your web UI using your server IP address or URL and your node port! 
 ```sh
-<vm ip/url>:<nodeport>  
+<server>:<nodeport>  
 ```
 
 <p align="center">
