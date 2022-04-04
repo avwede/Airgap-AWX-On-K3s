@@ -27,7 +27,7 @@ sudo chmod +x install.sh
 ls -l k3s
 ```
 
-4. Download the k3s install script from https://get.k3s.io and place it in the same folder as the k3s binary
+4. Download the [k3s install script](https://get.k3s.io) and place it in the same folder as the k3s binary
 ```sh
 cp ./install.sh /usr/local/bin
 ```
@@ -52,12 +52,11 @@ export PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin
 </p>
 
 ## Deploy awx-operator
-1. Clone and copy the awx-operator repository file into your air gapped environment  
-https://github.com/ansible/awx-operator
+1. Clone and copy the [awx-operator repository](https://github.com/ansible/awx-operator) file into your air gapped environment  
 
 2. Download image dependencies and push to your GitLab container registry
-* `awx-operator` (https://quay.io/repository/ansible/awx-operator)
-* `kube-rbac-proxy` (https://registry.hub.docker.com/r/rancher/kube-rbac-proxy)
+* [awx-operator](https://quay.io/repository/ansible/awx-operator)
+* [kube-rbac-proxy](https://registry.hub.docker.com/r/rancher/kube-rbac-proxy)
 
 3. Create your new namespace for awx
 ```sh
