@@ -42,7 +42,7 @@ INSTALL_K3S_SKIP_DOWNLOAD=true ./install.sh
 systemctl status k3s
 ```
 
-NOTE: You may need to include /usr/local/bin in your path to run kubectl commands.
+NOTE: You may need to include `/usr/local/bin` in your path to run kubectl commands.
 ```sh
 export PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin
 ```
@@ -68,7 +68,7 @@ kubectl create namespace awx
 sudo kubectl create secret docker-registry awx-puller --docker-server=<my-server-registry> --docker-username=<my-username> --docker-password=<my-password> -n awx
 ```
 
-5. Edit your /roles/installer/defaults/main.yml file to point your images to your GitLab registry instead of quay.io and docker. Ensure that your image_pull_secret is set to awx-puller. 
+5. Edit your `/roles/installer/defaults/main.yml` file to point your images to your GitLab registry instead of quay.io and docker. Ensure that your image_pull_secret is set to awx-puller. 
 
 6. Run the makefile in the awx-operator repository folder
 ```sh
