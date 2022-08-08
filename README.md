@@ -129,9 +129,9 @@ pod/awx-instance-1-postgres-0                          1/1     Running   0      
 pod/awx-instance-1-42sf4sfdb5-sf54d                    4/4     Running   0               2d19h
 
 NAME                                                      TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
-service/awx-operator-controller-manager-metrics-service   ClusterIP   10.43.103.10    <none>        8443/TCP       3d17h
+service/awx-operator-controller-manager-metrics-service   ClusterIP   11.11.111.11    <none>        8443/TCP       3d17h
 service/awx-instance-1-postgres                           ClusterIP   None            <none>        5432/TCP       2d19h
-service/awx-instance-1-service                            NodePort    10.43.159.107   <none>        80:32762/TCP   2d19h
+service/awx-instance-1-service                            NodePort    11.11.111.111   <none>        80:32762/TCP   2d19h
 
 NAME                                              READY   UP-TO-DATE   AVAILABLE   AGE
 deployment.apps/awx-operator-controller-manager   1/1     1            1           3d17h
